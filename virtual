@@ -1,10 +1,3 @@
---[[
-    scoot ui library
-    made by samet
-    https://discord.gg/VhvTd5HV8d
-
-    example/documentation is at the bottom
-]]
 
 if Library then
     Library:Unload()
@@ -4874,7 +4867,7 @@ local Library do
 	
 	            Watermark:Set(
 	                string.format(
-	                    "Matcha.Vhuy | Ms: %d | Fps: %d",
+	                    "Mitro.exe | Ms: %d | Fps: %d",
 	                    ping,
 	                    fps * 2 -- vì update 0.5s
 	                )
