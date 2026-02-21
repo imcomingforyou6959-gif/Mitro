@@ -3,7 +3,7 @@ if Library then Library:Unload() end
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/yuvic123/SKIDO-V3/refs/heads/main/fixed%20fireclick'))()
 
-local Library = loadstring(game:HttpGet('https://pastefy.app/ejq6tMOA/raw'))()
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/imcomingforyou6959-gif/Mitro/refs/heads/main/virtual'))()
 local Flags = {}
 Library.Flags = Flags
 
