@@ -9,7 +9,7 @@ Library.Flags = Flags
 
 local Window = Library:Window({ Logo = '125375362621484', FadeTime = 0.3 })
 
--- ============ COLOR DEFINITIONS (must be used everywhere) ============
+-- ============ COLOR DEFINITIONS ============
 local Colors = {
     Background = Color3.fromRGB(250, 248, 245),
     Primary = Color3.fromRGB(147, 179, 141),
@@ -55,10 +55,10 @@ local targetlist = {}
 local selectedPlayerName = nil
 local Client = LocalPlayer
 
--- Death position storage (for return by death)
+-- Death position storage
 local deathPosition = nil
 
--- Weld variables (separate for stomp and kill)
+-- Weld variables
 local weldStompConn = nil
 local weldStompObj = nil
 local weldKillConn = nil
@@ -268,7 +268,7 @@ function predictPosition(targetRoot, predictionMultiplier)
     return targetRoot.Position + velocity * (ping + predictionMultiplier)
 end
 
--- ============ NOTIFICATION SYSTEM ============
+-- ============ NOTIFICATIONS ============
 local NotificationGui = Instance.new('ScreenGui')
 NotificationGui.Name = 'NotificationGui'
 NotificationGui.ResetOnSpawn = false
@@ -340,12 +340,12 @@ local function CreateNotification(message, duration)
 end
 
 -- ============ ANTI‑LOCK SYSTEM ============
--- Prevents other aimbots from locking onto you by jittering your hitbox position.
+-- ALS
 local function startAntiLock()
     if antiLockActive then return end
     antiLockActive = true
 
-    -- Slight random movement of HumanoidRootPart (simulates unpredictable movement)
+    -- SRM 
     local heartbeatConn = RunService.Heartbeat:Connect(function()
         if not Flags.AntiLockEnabled then
             heartbeatConn:Disconnect()
@@ -386,8 +386,8 @@ local function stopAntiLock()
     antiLockActive = false
 end
 
--- ============ RETURN BY DEATH (IMPROVED) ============
--- Stores death position and teleports on respawn (no GUI, only logic)
+-- ============ RETURN BY DEATH ============
+-- Stores death position
 local function onCharacterDied()
     if Flags.ReturnByDeathEnabled then
         local character = LocalPlayer.Character
@@ -421,7 +421,7 @@ if LocalPlayer.Character then
     onCharacterAdded(LocalPlayer.Character)
 end
 
--- ============ WELD FUNCTIONS (IMPROVED – SEPARATE INSTANCES) ============
+-- ============ WELD FUNCTIONS ============
 local function createWeld(part0, part1)
     local weld = Instance.new('Weld')
     weld.Part0 = part0
@@ -488,7 +488,7 @@ local function startWeldKill(target)
 end
 
 -- ============ ANTI‑LAG ============
--- Simple movement smoothing + random delays to avoid pattern detection
+-- ALSR
 RunService.Heartbeat:Connect(function()
     if Flags.AntiLagEnabled and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild('HumanoidRootPart') then
         local hrp = LocalPlayer.Character.HumanoidRootPart
@@ -2319,5 +2319,5 @@ AnimationSection:Dropdown({ Name = 'Fall', Flag = 'FallAnimation', Default = 'De
 AnimationSection:Toggle({ Name = 'Keep On Death', Flag = 'KeepOnDeath', Default = false })
 
 -- ============ INIT ============
-CreateNotification('Da Hood Ultimate Cheat - Ragebot Edition', 3)
-CreateNotification('All keybinds start empty – set them in the UI', 3)
+CreateNotification('Mitro.exe is in', 3)
+CreateNotification('Expect Changes script has tons of bugs', 3)
